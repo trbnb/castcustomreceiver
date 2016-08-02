@@ -4,7 +4,7 @@
   <script src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
 </head>
 <body>
-  <div id='media' style="background-color: white; width: 250px; color: black; position: absolute;"/>
+  <div id='media' style="background-color: white; color: black; position: absolute; left: 0px; font-size: xx-large; font-weight: 700; padding: 40px 125px;"/>
   <script>
     window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
 
@@ -13,8 +13,9 @@
       console.log(event);
       var el = document.getElementById('media');
       el.innerHTML = event.data;
-      el.style.left = event.data * 4 + "px;"
+      el.style.left = event.data * 4 + "px;";
       customMessageBus.send(event.senderId, event.data + ": Success!");
+      customMessageBus.broadcast(event.data);
     }
 
     window.castReceiverManager.start(); 
