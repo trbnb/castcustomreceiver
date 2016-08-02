@@ -14,7 +14,7 @@
       var el = document.getElementById('media');
       el.innerHTML = event.data;
       el.style.left = event.data * 4 + "px;"
-      customMessageBus.send(event.senderId, data + ": Success!");
+      customMessageBus.send(event.senderId, event.data + ": Success!");
     }
 
     window.castReceiverManager.start(); 
