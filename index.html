@@ -12,6 +12,7 @@
     customMessageBus.onMessage = function(event){
       console.log(event);
       document.getElementById('media').innerHTML = event.data;
+      customMessageBus.send(event.senderId, data + ": Success!");
     }
 
     window.castReceiverManager.start(); 
