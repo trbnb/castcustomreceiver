@@ -9,7 +9,13 @@
     window.mediaElement = document.getElementById('media');
     window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
     window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
-    window.castReceiverManager.start();
+
+    var customMessageBus = window.castReceiverManager.getCastMessageBus('urn:x-cast:de.c4c.cast')
+    customMessageBus.onMessage = function(event){
+      console.log(event);
+    }
+
+    window.castReceiverManager.start(); 
   </script>
 </body>
 </html>
